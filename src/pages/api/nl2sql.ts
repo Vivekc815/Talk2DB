@@ -42,7 +42,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   catch (error) {
-  console.error('OpenAI API error:', error);
+  console.error('OpenAI API error:', error); // ✅ this line uses the error
   res.status(500).json({ error: 'Failed to generate SQL' });
+}
 }
 } 
