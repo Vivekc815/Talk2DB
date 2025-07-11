@@ -29,7 +29,8 @@ export default function Home() {
         setSqlQuery('');
         showNotification(data.error || 'Failed to generate SQL. Please try again.', 'error');
       }
-    } catch (_error) {
+    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       setSqlQuery('');
       showNotification('Failed to generate SQL. Please try again.', 'error');
     } finally {
