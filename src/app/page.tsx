@@ -30,9 +30,10 @@ export default function Home() {
         showNotification(data.error || 'Failed to generate SQL. Please try again.', 'error');
       }
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      console.error(error);
       setSqlQuery('');
-      showNotification('Failed to generate SQL. Please try again.', 'error');
+	  showNotification('Failed to generate SQL. Please try again.', 'error');
+
     } finally {
       setIsLoading(false);
     }
