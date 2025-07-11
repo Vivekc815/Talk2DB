@@ -1,0 +1,62 @@
+[
+  {
+    "natural_language": "List all employees in the HR department",
+    "expected_sql": "SELECT * FROM employees WHERE department = 'HR';"
+  },
+  {
+    "natural_language": "Show names of customers from Delhi",
+    "expected_sql": "SELECT name FROM customers WHERE city = 'Delhi';"
+  },
+  {
+    "natural_language": "List the top 3 cities with highest number of customers who placed orders after January 1, 2024",
+    "expected_sql": "SELECT city, COUNT(*) AS customer_count FROM customers JOIN orders ON customers.id = orders.customer_id WHERE orders.order_date > '2024-01-01' GROUP BY city ORDER BY customer_count DESC LIMIT 3;"
+  },
+  {
+    "natural_language": "Show the average salary of employees",
+    "expected_sql": "SELECT AVG(salary) FROM employees;"
+  },
+  {
+    "natural_language": "Count how many students are in each department",
+    "expected_sql": "SELECT department, COUNT(*) FROM students GROUP BY department;"
+  },
+  {
+    "natural_language": "List products with price above 1000",
+    "expected_sql": "SELECT * FROM products WHERE price > 1000;"
+  },
+  {
+    "natural_language": "Get the names of students who scored more than 90",
+    "expected_sql": "SELECT name FROM students WHERE marks > 90;"
+  },
+  {
+    "natural_language": "Find all orders placed in March 2023",
+    "expected_sql": "SELECT * FROM orders WHERE order_date BETWEEN '2023-03-01' AND '2023-03-31';"
+  },
+  {
+    "natural_language": "Show all unique cities customers belong to",
+    "expected_sql": "SELECT DISTINCT city FROM customers;"
+  },
+  {
+    "natural_language": "Find employees who joined after 2020",
+    "expected_sql": "SELECT * FROM employees WHERE YEAR(join_date) > 2020;"
+  },
+  {
+    "natural_language": "List top 5 highest paid employees",
+    "expected_sql": "SELECT * FROM employees ORDER BY salary DESC LIMIT 5;"
+  },
+  {
+    "natural_language": "Find all customers whose name starts with 'A'",
+    "expected_sql": "SELECT * FROM customers WHERE name LIKE 'A%';"
+  },
+  {
+    "natural_language": "Get the number of orders per customer",
+    "expected_sql": "SELECT customer_id, COUNT(*) FROM orders GROUP BY customer_id;"
+  },
+  {
+    "natural_language": "Show employees along with their manager names",
+    "expected_sql": "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id;"
+  },
+  {
+    "natural_language": "Find products that contain 'milk' in their name",
+    "expected_sql": "SELECT * FROM products WHERE name LIKE '%milk%';"
+  }
+]
