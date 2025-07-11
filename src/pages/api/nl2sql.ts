@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'No SQL generated' });
     }
     res.status(200).json({ sql });
-  } catch (error) {
+  } catch (_error) {
     res.status(500).json({ error: 'Failed to generate SQL' });
   }
 } 

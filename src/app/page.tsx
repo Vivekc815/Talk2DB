@@ -29,7 +29,7 @@ export default function Home() {
         setSqlQuery('');
         showNotification(data.error || 'Failed to generate SQL. Please try again.', 'error');
       }
-    } catch (error) {
+    } catch (_error) {
       setSqlQuery('');
       showNotification('Failed to generate SQL. Please try again.', 'error');
     } finally {
