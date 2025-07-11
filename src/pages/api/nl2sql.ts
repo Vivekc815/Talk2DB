@@ -39,8 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'No SQL generated' });
     }
     res.status(200).json({ sql });
-  } catch (error) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    res.status(500).json({ error: 'Failed to generate SQL' });
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  catch (error) {
+  console.error('OpenAI API error:', error);
+  res.status(500).json({ error: 'Failed to generate SQL' });
+}
 } 
